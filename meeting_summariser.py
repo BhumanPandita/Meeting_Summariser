@@ -12,7 +12,7 @@ client = OpenAI()
 # Save uploaded file temporarily and return the path
 def save_uploaded_file(uploaded_file):
     try:
-        with tempfile.NamedTemporaryFile(delete=False,suffix=Path(uploaded_file.name)) as tmp_file:
+        with tempfile.NamedTemporaryFile(delete=False,suffix=Path(uploaded_file.name).suffix) as tmp_file:
             tmp_file.write(uploaded_file.getbuffer())
             return tmp_file.name
     except Exception as e:
